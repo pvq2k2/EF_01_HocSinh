@@ -291,8 +291,8 @@ namespace EF_01_HocSinh.Helper
         };
             bool coChuaTenThanhPho = tinhThanhList.Any(tinhThanh =>
             hocSinh.QueQuan.IndexOf(tinhThanh, StringComparison.OrdinalIgnoreCase) >= 0);
-            if (hocSinh.HoVaTen.Length < 2 && hocSinh.HoVaTen.Length > 20) return LogType.ErrorHoVaTen;
-            if (hocSinh.HoVaTen.Split("").Length < 2) return LogType.ErrorSoTu;
+            if (hocSinh.HoVaTen.Length > 20) return LogType.ErrorHoVaTen;
+            if (hocSinh.HoVaTen.Split(" ").Length < 2) return LogType.ErrorSoTu;
             if (hocSinh.NgaySinh.Year < 2001 && hocSinh.NgaySinh.Year > 2013) return LogType.ErrorNgaySinh;
             if (!coChuaTenThanhPho) return LogType.ErrorQueQuan;
             return LogType.Thoat;
